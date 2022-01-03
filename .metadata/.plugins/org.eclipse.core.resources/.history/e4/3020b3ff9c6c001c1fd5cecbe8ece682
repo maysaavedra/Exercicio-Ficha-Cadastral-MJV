@@ -1,0 +1,55 @@
+package form;
+
+import java.util.Set;
+
+import form.model.Formulario;
+import form.model.GrauInstrucao;
+import form.repository.*;
+import form.service.PreencherFicha;
+import form.util.GravarDados;
+
+public class FormApplication {
+
+	public static void main(String[] args) {
+		
+		FormularioRepository repository = new FormularioRepository();
+//		PreencherFicha ficha = new PreencherFicha();
+		
+//		ficha.novoFormulario();
+		Formulario form = new Formulario();
+		
+		form.setId(1);
+		form.setProfissao("Desenvolvedora");
+		form.setNome("Mayara");
+		form.setSalárioMin(2000.55);
+		form.setSalárioMax(30000.00);
+		form.setDataNascimento("11011995");
+		form.setCpf("123456789333");		
+		form.setRg("416539725");
+		form.setEndereco("Rua Conde de Porto Alegre");
+		form.setNumeroCasa("1864");
+		form.setBairro("Campo Belo");
+		form.setMunicipio("Mayara");
+		form.setUf("SP");
+		form.setCep("04608003");
+		form.setNaturalidade("Pirassununga");
+		form.setPais("Brasil");
+		form.setTelefone("1155559876");
+		form.setCelular("11982753125");
+		form.setEmail("mayara.saavedra@gmail.com");
+		form.setGrauinstrucao(GrauInstrucao.SUPERIOR);;
+		
+		repository.adicionarFormularios(form);
+	
+		
+		Set<Formulario> formularios = repository.getFormularios();
+		
+		System.out.println(formularios);	
+		
+		GravarDados gd = new GravarDados();
+		gd.abrir();
+		gd.escrever(formularios);
+		gd.fechar();
+	}
+
+}

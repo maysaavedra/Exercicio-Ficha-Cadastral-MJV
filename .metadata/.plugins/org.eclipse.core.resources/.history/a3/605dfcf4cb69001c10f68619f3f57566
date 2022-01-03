@@ -1,0 +1,6 @@
+package form.model;
+
+public enum GrauInstrucao {
+	
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;form.util.Formater&apos; to &apos;FormaterUtil&apos;&#x0D;&#x0A;- Original project: &apos;FichaCadastral&apos;&#x0D;&#x0A;- Original element: &apos;form.util.Formater&apos;&#x0D;&#x0A;- Renamed element: &apos;form.util.FormaterUtil&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Formater&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;form.util{Formater.java[Formater" matchStrategy="1" name="FormaterUtil" qualified="false" references="true" similarDeclarations="false" stamp="1640961184550" textual="false" version="1.0"/>
+</session>

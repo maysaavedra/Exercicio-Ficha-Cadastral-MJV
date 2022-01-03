@@ -1,0 +1,42 @@
+package form.service;
+
+
+
+import form.model.Formulario;
+import form.model.GrauInstrucao;
+import form.repository.FormularioRepository;
+
+public class PreencherFicha {
+	
+	
+
+	public void novoFormulario() {
+		
+		FormularioRepository repository = new FormularioRepository();
+		Formulario form = new Formulario();
+		
+		form.setId(1);
+		form.setNome("Mayara");
+		form.setSalárioMin(2000.55);
+		form.setSalárioMax(30000.00);
+		form.setDataNascimento("11011995");
+		form.setCpf("123456789333");		
+		form.setRg("416539725");
+		form.setEndereco("Rua Conde de Porto Alegre");
+		form.setNumeroCasa("1864");
+		form.setBairro("Campo Belo");
+		form.setMunicipio("Mayara");
+		form.setUf("SP");
+		form.setCep("04608003");
+		form.setNaturalidade("Pirassununga");
+		form.setPais("Brasil");
+		form.setTelefone("1155559876");
+		form.setCelular("11982753125");
+		form.setEmail("mayara.saavedra@gmail.com");
+		form.setGrauinstrucao(GrauInstrucao.SUPERIOR);;
+	
+		repository.adicionarFormularios(form);
+	
+	}
+
+}

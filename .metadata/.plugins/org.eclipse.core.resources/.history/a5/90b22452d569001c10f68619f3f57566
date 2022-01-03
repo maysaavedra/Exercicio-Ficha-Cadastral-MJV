@@ -1,0 +1,29 @@
+package form;
+
+import java.util.Set;
+
+import form.model.Formulario;
+import form.repository.*;
+import form.service.PreencherFicha;
+import form.util.GravarDados;
+
+public class FormApplication {
+
+	public static void main(String[] args) {
+		
+		FormularioRepository repository = new FormularioRepository();
+		PreencherFicha ficha = new PreencherFicha();
+		
+		ficha.novoFormulario();
+	
+		
+		Set<Formulario> formularios = repository.getFormularios();
+		
+		System.out.println(formularios);	
+		
+		GravarDados gd = new GravarDados();
+//		gd.abrir();
+//		gd.escrever(formularios);
+	}
+
+}

@@ -1,0 +1,88 @@
+package form.util;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+import form.model.Formulario;
+
+public class LeitorRemessa {
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	
+private List <String> ler(String caminhoArquivo) {
+		
+		try {
+			List <String> DadosForm = Files.readAllLines(Paths.get(caminhoArquivo), StandardCharsets.UTF_8);
+			return DadosForm;
+			
+		}catch( IOException e){
+			e.printStackTrace();
+			
+		}
+		
+		return null; 
+		
+	}
+	
+	public List <Formulario> converter (String caminhoArquivo) {
+		List <String> conteudos = ler(caminhoArquivo);
+		List <Formulario> formularios = new ArrayList();
+		
+		for(String linha:conteudos) {
+			String[] campos = linha.split(";");
+			Formulario f = new Formulario();
+			
+			f.setProfissao(campos[0]);
+	    	f.setNome(campos[1]);
+	    	f.setSalarioMin(Double.valueOf(campos[2]));
+	    	f.setSalarioMax(Double.valueOf(campos[3]));
+	    	
+	    	String date = campos[4];
+			LocalDate data = LocalDate.parse(date,formatter);
+			r.setDataNascimento(data);
+		    	
+	    	r.setCpf(campos[5]);
+	    	r.setRg(campos[6]);
+	    	r.setLogradouro(campos[7]);
+	        
+	    	String numero = campos [8];
+	        Integer  number =  Integer.parseInt(numero);
+	        r.setNumeroCasa(number);
+				
+	    	r.setBairro(campos[9]);
+	    	r.setCidade(campos[10]);
+	    	r.setUf(Estado.valueOf(campos[11]));
+	    	r.setCep(campos[12]);
+	    	r.setNaturalidade(campos[13]);
+	    	 r.setPais(campos[14]);
+	    	r.setTelefone(campos[15]);
+	    	r.setCelular(campos[16]);
+	        r.setEmail(campos[17]);
+			
+			
+	
+			
+			
+			
+			
+			
+			
+			String date = campos[0];
+			LocalDate data = LocalDate.parse(date, formatter);
+			
+//			t.setDataTransacao(data);
+			
+			
+			formularios.add(f);
+			
+		}
+		
+		return formularios;
+	}
+
+}
